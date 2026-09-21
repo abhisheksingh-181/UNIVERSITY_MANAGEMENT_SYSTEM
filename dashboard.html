@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Management System - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2>UMS</h2>
+
+        <a href="#" class="active">🏠 Dashboard</a>
+        <a href="#">👨‍🎓 Students</a>
+        <a href="#">📚 Courses</a>
+        <a href="#">📊 Attendance</a>
+        <a href="#">📝 Examinations</a>
+        <a href="#">💰 Fees</a>
+        <a href="#">⚙️ Settings</a>
+
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <main class="main">
+
+        <div class="topbar">
+            <div>
+                <h1>Dashboard</h1>
+                <p>Welcome back, Abhishek 👋</p>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">AS</div>
+                <div>
+                    <strong>Abhishek Singh</strong>
+                    <small>B.Tech CSE</small>
+                </div>
+            </div>
+        </div>
+
+        <section class="cards">
+
+            <div class="card">
+                <div class="icon">📚</div>
+                <div>
+                    <h3>6</h3>
+                    <p>Total Subjects</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon">📊</div>
+                <div>
+                    <h3>82%</h3>
+                    <p>Attendance</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon">📝</div>
+                <div>
+                    <h3>3</h3>
+                    <p>Upcoming Exams</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon">💰</div>
+                <div>
+                    <h3>₹12,500</h3>
+                    <p>Fees Due</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="content">
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <h2>Today's Schedule</h2>
+                    <button onclick="showSchedule()">View All</button>
+                </div>
+
+                <div class="schedule">
+                    <div class="time">09:00 AM</div>
+                    <div>
+                        <strong>Operating System</strong>
+                        <p>Room 204 • Dr. Sharma</p>
+                    </div>
+                </div>
+
+                <div class="schedule">
+                    <div class="time">11:00 AM</div>
+                    <div>
+                        <strong>Database Management System</strong>
+                        <p>Room 302 • Prof. Singh</p>
+                    </div>
+                </div>
+
+                <div class="schedule">
+                    <div class="time">02:00 PM</div>
+                    <div>
+                        <strong>Computer Networks</strong>
+                        <p>Lab 1 • Prof. Kumar</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel">
+                <h2>Quick Actions</h2>
+
+                <div class="actions">
+                    <button onclick="openSection('profile')">
+                        👤<span>My Profile</span>
+                    </button>
+
+                    <button onclick="openSection('courses')">
+                        📚<span>My Courses</span>
+                    </button>
+
+                    <button onclick="openSection('attendance')">
+                        📊<span>Attendance</span>
+                    </button>
+
+                    <button onclick="openSection('exams')">
+                        📝<span>Examinations</span>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="panel announcements">
+            <h2>📢 Announcements</h2>
+
+            <div class="announcement">
+                <strong>Mid-Term Examination</strong>
+                <p>Mid-term examinations will start from 15 October 2026.</p>
+            </div>
+
+            <div class="announcement">
+                <strong>Fee Submission</strong>
+                <p>Last date for fee submission is 10 October 2026.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
