@@ -1,164 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Profile</title>
+
+    <title>Student Profile | UniFlow</title>
+
+    <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="student-profile.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 </head>
 
 <body>
 
-<header class="topbar">
-    <div class="brand">University Management System</div>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
-    <nav>
-        <a href="dashboard.html">Dashboard</a>
-        <a class="active" href="student-profile.html">Student Profile</a>
-        <a href="courses.html">Courses</a>
-    </nav>
-</header>
+        <div class="logo">
+            <div class="logo-box">U</div>
 
-<main class="page">
-
-    <div class="page-heading">
-        <div>
-            <p class="eyebrow">STUDENT PORTAL</p>
-            <h1>Student Profile</h1>
-            <p class="muted">
-                View your personal and academic information.
-            </p>
+            <div>
+                <h2>UniFlow</h2>
+                <span>Management System</span>
+            </div>
         </div>
 
-        <a class="outline-btn" href="dashboard.html">
-            ← Back to Dashboard
-        </a>
-    </div>
+        <div class="menu-title">MAIN MENU</div>
 
-    <section class="profile-grid">
+        <nav>
 
-        <article class="profile-card profile-main">
+            <a href="dashboard.html">
+                <i class="fa-solid fa-grid-2"></i>
+                Dashboard
+            </a>
 
-            <div class="avatar">AN</div>
+            <a href="student-profile.html" class="active">
+                <i class="fa-solid fa-user-graduate"></i>
+                Students
+            </a>
 
-            <h2>Akash Nishad</h2>
+            <a href="courses.html">
+                <i class="fa-solid fa-book-open"></i>
+                Courses
+            </a>
 
-            <p class="role">
-                B.Tech Computer Science
-            </p>
+            <a href="#">
+                <i class="fa-solid fa-chart-simple"></i>
+                Attendance
+            </a>
 
-            <span class="status">
-                ● Active Student
-            </span>
+            <a href="#">
+                <i class="fa-solid fa-file-lines"></i>
+                Examinations
+            </a>
 
-            <div class="quick-info">
+            <a href="#">
+                <i class="fa-solid fa-credit-card"></i>
+                Fees
+            </a>
 
-                <div>
-                    <span>Student ID</span>
-                    <strong>STU2025CS001</strong>
-                </div>
+        </nav>
 
-                <div>
-                    <span>Semester</span>
-                    <strong>4th Semester</strong>
-                </div>
+        <div class="menu-title">SYSTEM</div>
 
-                <div>
-                    <span>Department</span>
-                    <strong>Computer Science</strong>
+        <nav>
+
+            <a href="#">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Logout
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="mini-avatar">AS</div>
+
+            <div>
+                <strong>Abhishek Singh</strong>
+                <small>B.Tech CSE</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    placeholder="Search anything..."
+                >
+
+            </div>
+
+            <div class="top-actions">
+
+                <button class="notification">
+                    <i class="fa-regular fa-bell"></i>
+                    <span></span>
+                </button>
+
+                <div class="user">
+
+                    <div class="avatar">AS</div>
+
+                    <div>
+                        <strong>Abhishek Singh</strong>
+                        <small>Student</small>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
                 </div>
 
             </div>
 
-        </article>
+        </header>
 
-        <article class="profile-card">
 
-            <div class="card-title">
-                <h3>Personal Information</h3>
+        <!-- PROFILE CONTENT -->
+
+        <section class="profile-heading">
+
+            <div>
+                <p class="eyebrow">STUDENT MANAGEMENT</p>
+
+                <h1>Student Profile</h1>
+
+                <p class="subtext">
+                    View and manage your academic and personal information.
+                </p>
             </div>
 
-            <div class="details">
+            <button class="primary-btn">
+                <i class="fa-solid fa-pen"></i>
+                Edit Profile
+            </button>
 
-                <div>
-                    <span>Full Name</span>
-                    <strong>Akash Nishad</strong>
+        </section>
+
+
+        <section class="profile-layout">
+
+            <!-- LEFT PROFILE CARD -->
+
+            <div class="card profile-card">
+
+                <div class="profile-avatar">
+                    AS
                 </div>
 
-                <div>
-                    <span>Email</span>
-                    <strong>akash@example.com</strong>
-                </div>
+                <h2>Abhishek Singh</h2>
 
-                <div>
-                    <span>Phone</span>
-                    <strong>+91 98XXXXXXXX</strong>
-                </div>
+                <p class="profile-course">
+                    B.Tech Computer Science & Engineering
+                </p>
 
-                <div>
-                    <span>Date of Birth</span>
-                    <strong>DD/MM/YYYY</strong>
-                </div>
+                <span class="profile-status">
+                    <i class="fa-solid fa-circle"></i>
+                    Active Student
+                </span>
 
-                <div>
-                    <span>Gender</span>
-                    <strong>Male</strong>
-                </div>
-
-                <div>
-                    <span>Address</span>
-                    <strong>Uttar Pradesh, India</strong>
-                </div>
-
-            </div>
-
-        </article>
-
-        <article class="profile-card">
-
-            <div class="card-title">
-                <h3>Academic Information</h3>
-            </div>
-
-            <div class="details">
-
-                <div>
-                    <span>Program</span>
-                    <strong>B.Tech</strong>
-                </div>
-
-                <div>
-                    <span>Branch</span>
-                    <strong>Computer Science</strong>
-                </div>
-
-                <div>
-                    <span>Specialization</span>
-                    <strong>Cloud Computing & DevOps</strong>
-                </div>
-
-                <div>
-                    <span>Year</span>
-                    <strong>2nd Year</strong>
-                </div>
-
-                <div>
-                    <span>Semester</span>
-                    <strong>4th</strong>
-                </div>
-
-                <div>
-                    <span>Academic Status</span>
-                    <strong>Active</strong>
+                <div class="profile-id">
+                    Student ID: <strong>UMS2026CS001</strong>
                 </div>
 
             </div>
 
-        </article>
 
-    </section>
+            <!-- PERSONAL INFORMATION -->
 
-</main>
+            <div class="card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Personal Information</h2>
+                        <p>Basic student details</p>
+                    </div>
+
+                </div>
+
+                <div class="info-grid">
+
+                    <div class="info-item">
+                        <span>Full Name</span>
+                        <strong>Abhishek Singh</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>Email</span>
+                        <strong>abhishek@example.com</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>Phone</span>
+                        <strong>+91 98XXXXXXXX</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>Date of Birth</span>
+                        <strong>15 August 2005</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>Gender</span>
+                        <strong>Male</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>Address</span>
+                        <strong>Uttar Pradesh, India</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACADEMIC INFORMATION -->
+
+            <div class="card academic-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Academic Information</h2>
+                        <p>Current academic details</p>
+                    </div>
+
+                </div>
+
+                <div class="info-grid">
+
+                    <div class="info-item">
+                        <span>Program</span>
+                        <strong>B.Tech</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>Department</span>
+                        <strong>Computer Science & Engineering</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>Year</span>
+                        <strong>2nd Year</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>Semester</span>
+                        <strong>4th Semester</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>Specialization</span>
+                        <strong>Cloud Computing & DevOps</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>Academic Status</span>
+                        <strong class="active-text">Active</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK STATS -->
+
+            <div class="profile-stats">
+
+                <div class="mini-stat">
+                    <i class="fa-solid fa-book"></i>
+                    <div>
+                        <span>Total Courses</span>
+                        <strong>06</strong>
+                    </div>
+                </div>
+
+                <div class="mini-stat">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <div>
+                        <span>Attendance</span>
+                        <strong>82%</strong>
+                    </div>
+                </div>
+
+                <div class="mini-stat">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <div>
+                        <span>Current Semester</span>
+                        <strong>IV</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
 
 </body>
 </html>

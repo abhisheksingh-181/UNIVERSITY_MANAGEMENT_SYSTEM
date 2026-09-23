@@ -2,254 +2,573 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Courses</title>
+    <title>Courses | UniFlow</title>
 
+    <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="courses.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
 </head>
 
 <body>
 
-<header class="topbar">
 
-    <div class="brand">
-        University Management System
-    </div>
+<!-- SIDEBAR -->
 
-    <nav>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="student-profile.html">Student Profile</a>
-        <a class="active" href="courses.html">Courses</a>
-    </nav>
+<aside class="sidebar">
 
-</header>
+    <div class="logo">
 
-
-<main class="page">
-
-    <div class="page-heading">
+        <div class="logo-box">
+            U
+        </div>
 
         <div>
-            <p class="eyebrow">ACADEMIC PORTAL</p>
-
-            <h1>My Courses</h1>
-
-            <p class="muted">
-                Courses enrolled for the current semester.
-            </p>
+            <h2>UniFlow</h2>
+            <span>Management System</span>
         </div>
-
-        <a class="outline-btn" href="dashboard.html">
-            ← Back to Dashboard
-        </a>
 
     </div>
 
 
-    <!-- Course Summary -->
+    <div class="menu-title">
+        MAIN MENU
+    </div>
 
-    <section class="summary">
 
-        <div class="summary-card">
-            <span>Total Courses</span>
-            <strong>6</strong>
+    <nav>
+
+        <a href="dashboard.html">
+
+            <i class="fa-solid fa-grid-2"></i>
+
+            Dashboard
+
+        </a>
+
+
+        <a href="student-profile.html">
+
+            <i class="fa-solid fa-user-graduate"></i>
+
+            Students
+
+        </a>
+
+
+        <a href="courses.html" class="active">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            Courses
+
+        </a>
+
+
+        <a href="#">
+
+            <i class="fa-solid fa-chart-simple"></i>
+
+            Attendance
+
+        </a>
+
+
+        <a href="#">
+
+            <i class="fa-solid fa-file-lines"></i>
+
+            Examinations
+
+        </a>
+
+
+        <a href="#">
+
+            <i class="fa-solid fa-credit-card"></i>
+
+            Fees
+
+        </a>
+
+    </nav>
+
+
+    <div class="menu-title">
+        SYSTEM
+    </div>
+
+
+    <nav>
+
+        <a href="#">
+
+            <i class="fa-solid fa-gear"></i>
+
+            Settings
+
+        </a>
+
+
+        <a href="#">
+
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+            Logout
+
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <div class="mini-avatar">
+            AS
         </div>
 
-        <div class="summary-card">
-            <span>Total Credits</span>
-            <strong>20</strong>
+        <div>
+
+            <strong>
+                Abhishek Singh
+            </strong>
+
+            <small>
+                B.Tech CSE
+            </small>
+
         </div>
 
-        <div class="summary-card">
-            <span>Semester</span>
-            <strong>IV</strong>
+    </div>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div class="search">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                placeholder="Search anything..."
+            >
+
+        </div>
+
+
+        <div class="top-actions">
+
+            <button class="notification">
+
+                <i class="fa-regular fa-bell"></i>
+
+                <span></span>
+
+            </button>
+
+
+            <div class="user">
+
+                <div class="avatar">
+                    AS
+                </div>
+
+                <div>
+
+                    <strong>
+                        Abhishek Singh
+                    </strong>
+
+                    <small>
+                        Student
+                    </small>
+
+                </div>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- COURSE HEADING -->
+
+    <section class="courses-heading">
+
+        <div>
+
+            <p class="eyebrow">
+                ACADEMIC PORTAL
+            </p>
+
+            <h1>
+                My Courses
+            </h1>
+
+            <p class="subtext">
+                Courses enrolled for the current semester.
+            </p>
+
+        </div>
+
+        <button class="primary-btn">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            Browse Courses
+
+        </button>
+
+    </section>
+
+
+    <!-- COURSE STATS -->
+
+    <section class="course-stats">
+
+        <div class="course-stat">
+
+            <div class="course-stat-icon blue">
+                <i class="fa-solid fa-book"></i>
+            </div>
+
+            <div>
+                <span>Total Courses</span>
+                <strong>06</strong>
+            </div>
+
+        </div>
+
+
+        <div class="course-stat">
+
+            <div class="course-stat-icon green">
+                <i class="fa-solid fa-star"></i>
+            </div>
+
+            <div>
+                <span>Total Credits</span>
+                <strong>20</strong>
+            </div>
+
+        </div>
+
+
+        <div class="course-stat">
+
+            <div class="course-stat-icon purple">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <div>
+                <span>Average Progress</span>
+                <strong>69%</strong>
+            </div>
+
+        </div>
+
+
+        <div class="course-stat">
+
+            <div class="course-stat-icon orange">
+                <i class="fa-solid fa-calendar"></i>
+            </div>
+
+            <div>
+                <span>Semester</span>
+                <strong>IV</strong>
+            </div>
+
         </div>
 
     </section>
 
 
-    <!-- Courses -->
+    <!-- COURSE CARDS -->
 
-    <section class="course-grid">
+    <section class="courses-grid">
 
+
+        <!-- COURSE 1 -->
 
         <article class="course-card">
 
-            <div class="course-icon">
-                DS
+            <div class="course-top">
+
+                <div class="course-icon blue-bg">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+
+                <span class="course-code">
+                    CS204
+                </span>
+
             </div>
 
-            <div class="course-content">
+            <h2>
+                Data Structures
+            </h2>
 
-                <span class="code">CS204</span>
+            <p>
+                Dr. R. Sharma
+            </p>
 
-                <h2>Data Structures</h2>
+            <div class="course-info">
 
-                <p>
-                    Instructor: Dr. R. Sharma
-                </p>
+                <span>
+                    <i class="fa-solid fa-award"></i>
+                    4 Credits
+                </span>
 
-                <div class="course-meta">
-                    <span>4 Credits</span>
-                    <span>Progress 72%</span>
-                </div>
+                <span>
+                    72%
+                </span>
 
-                <div class="progress">
-                    <span style="width:72%"></span>
-                </div>
+            </div>
 
+            <div class="course-progress">
+                <span style="width:72%"></span>
             </div>
 
         </article>
 
 
+        <!-- COURSE 2 -->
+
         <article class="course-card">
 
-            <div class="course-icon">
-                DB
+            <div class="course-top">
+
+                <div class="course-icon purple-bg">
+                    <i class="fa-solid fa-database"></i>
+                </div>
+
+                <span class="course-code">
+                    CS205
+                </span>
+
             </div>
 
-            <div class="course-content">
+            <h2>
+                Database Management
+            </h2>
 
-                <span class="code">CS205</span>
+            <p>
+                Prof. A. Singh
+            </p>
 
-                <h2>Database Management System</h2>
+            <div class="course-info">
 
-                <p>
-                    Instructor: Prof. A. Singh
-                </p>
+                <span>
+                    <i class="fa-solid fa-award"></i>
+                    4 Credits
+                </span>
 
-                <div class="course-meta">
-                    <span>4 Credits</span>
-                    <span>Progress 65%</span>
-                </div>
+                <span>
+                    65%
+                </span>
 
-                <div class="progress">
-                    <span style="width:65%"></span>
-                </div>
+            </div>
 
+            <div class="course-progress">
+                <span style="width:65%"></span>
             </div>
 
         </article>
 
 
+        <!-- COURSE 3 -->
+
         <article class="course-card">
 
-            <div class="course-icon">
-                CN
+            <div class="course-top">
+
+                <div class="course-icon green-bg">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+
+                <span class="course-code">
+                    CS206
+                </span>
+
             </div>
 
-            <div class="course-content">
+            <h2>
+                Computer Networks
+            </h2>
 
-                <span class="code">CS206</span>
+            <p>
+                Dr. P. Verma
+            </p>
 
-                <h2>Computer Networks</h2>
+            <div class="course-info">
 
-                <p>
-                    Instructor: Dr. P. Verma
-                </p>
+                <span>
+                    <i class="fa-solid fa-award"></i>
+                    4 Credits
+                </span>
 
-                <div class="course-meta">
-                    <span>4 Credits</span>
-                    <span>Progress 58%</span>
-                </div>
+                <span>
+                    58%
+                </span>
 
-                <div class="progress">
-                    <span style="width:58%"></span>
-                </div>
+            </div>
 
+            <div class="course-progress">
+                <span style="width:58%"></span>
             </div>
 
         </article>
 
 
+        <!-- COURSE 4 -->
+
         <article class="course-card">
 
-            <div class="course-icon">
-                CA
+            <div class="course-top">
+
+                <div class="course-icon orange-bg">
+                    <i class="fa-solid fa-cloud"></i>
+                </div>
+
+                <span class="course-code">
+                    CS207
+                </span>
+
             </div>
 
-            <div class="course-content">
+            <h2>
+                Cloud Architecture
+            </h2>
 
-                <span class="code">CS207</span>
+            <p>
+                Prof. S. Kumar
+            </p>
 
-                <h2>Cloud Architecture</h2>
+            <div class="course-info">
 
-                <p>
-                    Instructor: Prof. S. Kumar
-                </p>
+                <span>
+                    <i class="fa-solid fa-award"></i>
+                    3 Credits
+                </span>
 
-                <div class="course-meta">
-                    <span>3 Credits</span>
-                    <span>Progress 80%</span>
-                </div>
+                <span>
+                    80%
+                </span>
 
-                <div class="progress">
-                    <span style="width:80%"></span>
-                </div>
+            </div>
 
+            <div class="course-progress">
+                <span style="width:80%"></span>
             </div>
 
         </article>
 
 
+        <!-- COURSE 5 -->
+
         <article class="course-card">
 
-            <div class="course-icon">
-                MP
+            <div class="course-top">
+
+                <div class="course-icon blue-bg">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
+
+                <span class="course-code">
+                    CS208
+                </span>
+
             </div>
 
-            <div class="course-content">
+            <h2>
+                Microprocessor
+            </h2>
 
-                <span class="code">CS208</span>
+            <p>
+                Dr. N. Gupta
+            </p>
 
-                <h2>Microprocessor</h2>
+            <div class="course-info">
 
-                <p>
-                    Instructor: Dr. N. Gupta
-                </p>
+                <span>
+                    <i class="fa-solid fa-award"></i>
+                    3 Credits
+                </span>
 
-                <div class="course-meta">
-                    <span>3 Credits</span>
-                    <span>Progress 61%</span>
-                </div>
+                <span>
+                    61%
+                </span>
 
-                <div class="progress">
-                    <span style="width:61%"></span>
-                </div>
+            </div>
 
+            <div class="course-progress">
+                <span style="width:61%"></span>
             </div>
 
         </article>
 
 
+        <!-- COURSE 6 -->
+
         <article class="course-card">
 
-            <div class="course-icon">
-                PS
+            <div class="course-top">
+
+                <div class="course-icon purple-bg">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+
+                <span class="course-code">
+                    HS204
+                </span>
+
             </div>
 
-            <div class="course-content">
+            <h2>
+                Professional Skills
+            </h2>
 
-                <span class="code">HS204</span>
+            <p>
+                Prof. M. Jain
+            </p>
 
-                <h2>Professional Skills</h2>
+            <div class="course-info">
 
-                <p>
-                    Instructor: Prof. M. Jain
-                </p>
+                <span>
+                    <i class="fa-solid fa-award"></i>
+                    2 Credits
+                </span>
 
-                <div class="course-meta">
-                    <span>2 Credits</span>
-                    <span>Progress 75%</span>
-                </div>
+                <span>
+                    75%
+                </span>
 
-                <div class="progress">
-                    <span style="width:75%"></span>
-                </div>
+            </div>
 
+            <div class="course-progress">
+                <span style="width:75%"></span>
             </div>
 
         </article>
