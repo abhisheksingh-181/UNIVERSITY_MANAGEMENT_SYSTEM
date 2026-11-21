@@ -16,7 +16,7 @@
     --white: #ffffff;
 }
 
-body {
+body {l
     font-family: 'Inter', sans-serif;
     background: var(--bg);
     color: var(--text);
