@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>UMS Dashboard</title>
+   <title>UMS Dashboard</title>
 
-    <link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="dashboard.css">
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
 </head>
 
 <body>
@@ -100,10 +100,15 @@
 
             <div class="top-actions">
 
-                <button class="notification" onclick="showNotification()">
-                    <i class="fa-regular fa-bell"></i>
-                    <span></span>
-                </button>
+
+<button class="notification" onclick="showNotification()" aria-label="Open notifications">
+    <svg class="bell-icon" viewBox="0 0 24 24">
+        <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+        <path d="M10 21h4"></path>
+    </svg>
+    <span class="notification-dot"></span>
+</button>
+
 
                 <div class="user">
                     <div class="avatar">AS</div>

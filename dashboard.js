@@ -93,6 +93,9 @@ function showMessage(message) {
 
 /* ===== 4. NOTIFICATION DROPDOWN ===== */
 
+
+/* ===== PROFESSIONAL NOTIFICATION SYSTEM ===== */
+
 function showNotification() {
     let panel = document.getElementById("notificationPanel");
 
@@ -107,54 +110,162 @@ function showNotification() {
     panel.style.cssText = `
         position: fixed;
         top: 85px;
-        right: 35px;
-        width: 290px;
+        right: 25px;
+        width: 320px;
         max-width: calc(100vw - 30px);
         background: white;
-        padding: 20px;
-        border: 1px solid #e9ecf2;
-        border-radius: 12px;
-        box-shadow: 0 10px 35px rgba(23,32,51,0.15);
+        border: 1px solid #e8eaf0;
+        border-radius: 14px;
+        padding: 18px;
+        box-shadow: 0 15px 40px rgba(23,32,51,0.15);
         z-index: 9998;
+        animation: notificationSlide 0.2s ease;
+    `;
+
+    const style = document.createElement("style");
+    style.id = "notificationAnimation";
+    style.textContent = `
+        @keyframes notificationSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    `;
+
+    if (!document.getElementById("notificationAnimation")) {
+        document.head.appendChild(style);
+    }
+
+    const header = document.createElement("div");
+    header.style.cssText = `
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:15px;
     `;
 
     const title = document.createElement("h3");
     title.textContent = "Notifications";
     title.style.cssText =
-        "font-size:15px;margin-bottom:12px;color:#172033;";
+        "font-size:16px;color:#172033;margin:0;";
 
-    const notice1 = document.createElement("p");
-    notice1.textContent =
-        "📚 Mid-term examinations are approaching.";
-    notice1.style.cssText =
-        "font-size:12px;padding:10px 0;border-top:1px solid #e9ecf2;";
-
-    const notice2 = document.createElement("p");
-    notice2.textContent =
-        "💳 Please check your pending fee balance.";
-    notice2.style.cssText =
-        "font-size:12px;padding:10px 0;border-top:1px solid #e9ecf2;";
-
-    const closeButton = document.createElement("button");
-    closeButton.textContent = "Close";
-
-    closeButton.style.cssText = `
-        background: #4f46e5;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        padding: 8px 14px;
-        cursor: pointer;
-        margin-top: 8px;
+    const close = document.createElement("button");
+    close.textContent = "×";
+    close.style.cssText = `
+        border:none;
+        background:#f1f2f8;
+        border-radius:7px;
+        width:28px;
+        height:28px;
+        cursor:pointer;
+        font-size:18px;
     `;
 
-    closeButton.addEventListener("click", function () {
-        panel.remove();
+    close.addEventListener("click", () => panel.remove());
+
+    header.append(title, close);
+    panel.appendChild(header);
+
+    const notices = [
+        {
+            icon: "📚",
+            title: "Mid-term Examinations",
+            message: "Your upcoming examinations are approaching.",
+            target: ".exam-list"
+        },
+        {
+            icon: "💳",
+            title: "Fee Reminder",
+            message: "Please check your pending fee balance.",
+            target: null
+        },
+        {
+            icon: "📅",
+            title: "Today's Classes",
+            message: "Check your updated class schedule.",
+            target: ".schedule-card"
+        }
+    ];
+
+    notices.forEach((notice, index) => {
+        const item = document.createElement("div");
+
+        item.style.cssText = `
+            display:flex;
+            gap:12px;
+            padding:13px 8px;
+            border-top:1px solid #edf0f5;
+            cursor:pointer;
+            border-radius:8px;
+        `;
+
+        const icon = document.createElement("span");
+        icon.textContent = notice.icon;
+        icon.style.fontSize = "20px";
+
+        const content = document.createElement("div");
+
+        const heading = document.createElement("strong");
+        heading.textContent = notice.title;
+        heading.style.cssText =
+            "display:block;font-size:12px;color:#172033;";
+
+        const message = document.createElement("p");
+        message.textContent = notice.message;
+        message.style.cssText =
+            "font-size:11px;color:#777f90;margin-top:5px;";
+
+        content.append(heading, message);
+        item.append(icon, content);
+
+        item.addEventListener("mouseenter", () => {
+            item.style.background = "#f7f8ff";
+        });
+
+        item.addEventListener("mouseleave", () => {
+            item.style.background = "transparent";
+        });
+
+        item.addEventListener("click", () => {
+            panel.remove();
+
+            if (notice.target) {
+                const target = document.querySelector(notice.target);
+
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+                }
+            } else {
+                showMessage("Your fee balance is ₹12.5K.");
+            }
+        });
+
+        panel.appendChild(item);
     });
 
-    panel.append(title, notice1, notice2, closeButton);
     document.body.appendChild(panel);
+
+    setTimeout(() => {
+        document.addEventListener("click", function outsideClick(event) {
+            if (
+                !panel.contains(event.target) &&
+                !event.target.closest(".notification")
+            ) {
+                panel.remove();
+                document.removeEventListener("click", outsideClick);
+            }
+        });
+    }, 0);
 }
+
 
 
 /* ===== 5. SCROLL TO SCHEDULE ===== */
