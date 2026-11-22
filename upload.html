@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Study Content | University Management System</title>
+  <link rel="stylesheet" href="upload.css">
+  <script src="upload.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="University Management System home">
+        <span class="brand-mark">U</span>
+        <span>University <strong>Management System</strong></span>
+      </a>
+      <span class="topbar-tag">ACADEMIC PORTAL</span>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">CONTENT LIBRARY</p>
+      <h1>Upload study content</h1>
+      <p class="intro-copy">Share notes, assignments, presentations, and other learning resources with your university community.</p>
+    </section>
+
+    <section class="upload-card" aria-labelledby="form-title">
+      <div class="card-heading">
+        <div>
+          <h2 id="form-title">Content details</h2>
+          <p>Complete the details below and attach your file.</p>
+        </div>
+        <span class="secure-label"><span aria-hidden="true">●</span> File submission</span>
+      </div>
+
+      <form id="uploadForm">
+        <div class="field">
+          <label for="contentTitle">Content title <span class="required">*</span></label>
+          <input id="contentTitle" name="title" type="text" maxlength="120" placeholder="e.g. Introduction to Data Structures" required>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="category">Content type <span class="required">*</span></label>
+            <select id="category" name="category" required>
+              <option value="">Select a category</option>
+              <option value="Notes">Lecture notes</option>
+              <option value="Assignment">Assignment</option>
+              <option value="Presentation">Presentation</option>
+              <option value="Question Paper">Question paper</option>
+              <option value="Reference Material">Reference material</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="course">Course / subject</label>
+            <input id="course" name="course" type="text" maxlength="100" placeholder="e.g. CS201">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="3" maxlength="500" placeholder="Add a short description to help students find this resource."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="contentFile">Choose a file <span class="required">*</span></label>
+          <label class="drop-zone" id="dropZone" for="contentFile">
+            <span class="upload-icon" aria-hidden="true">↑</span>
+            <span class="drop-title">Click to browse or drop your file here</span>
+            <span class="drop-hint">PDF, DOC, DOCX, PPT, PPTX, TXT, or image · Maximum 10 MB</span>
+            <span class="file-name" id="fileName">No file selected</span>
+          </label>
+          <input id="contentFile" name="file" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.png,.jpg,.jpeg" required hidden>
+        </div>
+
+        <div class="form-footer">
+          <p class="form-note">Fields marked <span class="required">*</span> are required.</p>
+          <button id="submitButton" type="submit"><span>Upload content</span><span aria-hidden="true">→</span></button>
+        </div>
+        <p id="statusMessage" class="status-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <p class="page-foot">Please upload only academic materials you are permitted to share.</p>
+  </main>
+</body>
+</html>
