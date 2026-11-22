@@ -392,3 +392,43 @@ function logout() {
         showMessage("Demo only: no account was logged out.");
     }
 }
+
+/* ===== DARK MODE TOGGLE ===== */
+
+const themeToggle = document.getElementById("themeToggle");
+
+if (themeToggle) {
+    const savedTheme = localStorage.getItem("dashboardTheme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+
+    function updateThemeIcon() {
+        const isDark = document.body.classList.contains("dark-mode");
+
+        themeToggle.innerHTML = isDark
+            ? '<i class="fa-solid fa-sun"></i>'
+            : '<i class="fa-solid fa-moon"></i>';
+
+        themeToggle.setAttribute(
+            "aria-label",
+            isDark ? "Switch to light mode" : "Switch to dark mode"
+        );
+    }
+
+    updateThemeIcon();
+
+    themeToggle.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+
+        const isDark = document.body.classList.contains("dark-mode");
+
+        localStorage.setItem(
+            "dashboardTheme",
+            isDark ? "dark" : "light"
+        );
+
+        updateThemeIcon();
+    });
+}

@@ -1002,3 +1002,84 @@ button.notification:hover {
         gap: 7px;
     }
 }
+
+/* ===== DARK MODE ===== */
+
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 17px;
+}
+
+body.dark-mode {
+    --bg: #111827;
+    --white: #1f2937;
+    --text: #f3f4f6;
+    --muted: #9ca3af;
+    --border: #374151;
+    --primary-light: #312e81;
+}
+
+body.dark-mode .sidebar,
+body.dark-mode .card,
+body.dark-mode .stat-card,
+body.dark-mode .search,
+body.dark-mode .theme-toggle,
+body.dark-mode .notification {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f3f4f6;
+}
+
+body.dark-mode .logo h2,
+body.dark-mode .welcome h1,
+body.dark-mode .stat-info h2,
+body.dark-mode .card h2,
+body.dark-mode .card h3,
+body.dark-mode .user strong,
+body.dark-mode .sidebar-bottom strong {
+    color: #f3f4f6;
+}
+
+body.dark-mode .search input {
+    background: transparent;
+    color: #f3f4f6;
+}
+
+body.dark-mode .class-item,
+body.dark-mode .exam,
+body.dark-mode .announcement {
+    background: #1f2937;
+    color: #f3f4f6;
+    border-color: #374151;
+}
+
+body.dark-mode .class-item:hover,
+body.dark-mode .exam:hover,
+body.dark-mode .announcement:hover {
+    background: #273449;
+}
+
+body.dark-mode .notification .bell-icon {
+    stroke: #a5b4fc;
+}
+
+body.dark-mode #notificationPanel {
+    background: #1f2937 !important;
+    border-color: #374151 !important;
+    color: #f3f4f6;
+}
+
+body.dark-mode #notificationPanel h3,
+body.dark-mode #notificationPanel strong {
+    color: #f3f4f6 !important;
+}
