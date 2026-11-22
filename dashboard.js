@@ -286,15 +286,7 @@ function showSchedule() {
 
 /* ===== 6. ATTENDANCE DETAILS ===== */
 
-const subjectAttendance = [
-    { name: "Data Structures", code: "CS204", attended: 44, total: 50, percent: 88 },
-    { name: "Operating System", code: "CS208", attended: 35, total: 45, percent: 78 },
-    { name: "Database Management", code: "CS205", attended: 41, total: 48, percent: 85 },
-    { name: "Computer Networks", code: "CS206", attended: 32, total: 40, percent: 80 },
-    { name: "Cloud Architecture", code: "CS207", attended: 29, total: 38, percent: 76 },
-    { name: "Microprocessor", code: "CS209", attended: 35, total: 42, percent: 83 },
-    { name: "Professional Skills", code: "HS204", attended: 27, total: 32, percent: 84 }
-];
+const subjectAttendance = (typeof UniFlowData !== "undefined" && UniFlowData.subjects) || [];
 
 function renderSubjectAttendance() {
     const list = document.getElementById("attendanceSubjectList");
@@ -470,13 +462,16 @@ if (searchInput) {
 
 /* ===== 9. DEMO LOGOUT ===== */
 
-function logout() {
-    const confirmLogout = confirm(
-        "Do you want to leave the dashboard?"
-    );
+function logout(event) {
+    if (event) {
+        event.preventDefault();
+    }
+
+    const confirmLogout = confirm("Do you want to log out?");
 
     if (confirmLogout) {
-        showMessage("Demo only: no account was logged out.");
+        localStorage.removeItem("umsUser");
+        window.location.href = "index.html";
     }
 }
 
@@ -524,22 +519,15 @@ if (themeToggle) {
 document.querySelectorAll(".quick-action").forEach(button => {
     button.addEventListener("click", function () {
         const action = this.dataset.action;
-
-        const messages = {
-            student: "Student registration is available in demo mode.",
-            course: "Course management is available in demo mode.",
-            attendance: "Opening attendance section...",
-            exam: "Opening examination section..."
+        const routes = {
+            student: "students.html",
+            course: "courses.html",
+            attendance: "attendance.html",
+            exam: "examinations.html"
         };
 
-        if (action === "attendance" && typeof showAttendance === "function") {
-            showAttendance();
-        } else if (action === "exam" && typeof showExams === "function") {
-            showExams();
-        } else if (typeof showMessage === "function") {
-            showMessage(messages[action]);
-        } else {
-            alert(messages[action]);
+        if (routes[action]) {
+            window.location.href = routes[action];
         }
     });
 });

@@ -278,6 +278,9 @@ body {
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(79, 70, 229, 0.2);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
 }
 
 .primary-btn i {
@@ -396,13 +399,15 @@ body {
     color: var(--muted);
 }
 
-.card-header button {
+.card-header button,
+.card-header a {
     border: none;
     background: transparent;
     color: var(--primary);
     font-size: 10px;
     font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
 }
 
 

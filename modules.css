@@ -1,0 +1,229 @@
+.page-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 34px 0 28px;
+}
+
+.page-heading h1 {
+    font-size: 26px;
+    letter-spacing: -0.7px;
+    margin-bottom: 7px;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 8px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.filter-tabs button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.filter-tabs button.active {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.module-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 18px;
+}
+
+.student-row,
+.exam-row,
+.fee-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--white);
+    color: inherit;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.student-row,
+.exam-row {
+    cursor: pointer;
+}
+
+.student-row span:nth-child(2),
+.exam-row span:nth-child(2),
+.fee-row div:first-child {
+    flex: 1;
+    min-width: 0;
+}
+
+.student-row strong,
+.exam-row strong,
+.fee-row strong {
+    display: block;
+    font-size: 13px;
+}
+
+.student-row small,
+.exam-row small,
+.fee-row small {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.student-row.active,
+.exam-row.active,
+.student-row:hover,
+.exam-row:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.row-meta {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.profile-preview {
+    text-align: center;
+}
+
+.profile-preview .info-grid {
+    text-align: left;
+    margin: 18px 0;
+}
+
+.compact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+}
+
+.exam-date-block {
+    width: 48px;
+    text-align: center;
+}
+
+.exam-date-block strong {
+    display: block;
+    font-size: 16px;
+}
+
+.exam-date-block span {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.fee-status {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 9px;
+    border-radius: 999px;
+}
+
+.fee-status.paid {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.fee-status.pending {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.fee-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--primary-light);
+    margin-bottom: 16px;
+}
+
+.settings-form {
+    display: grid;
+    gap: 16px;
+    max-width: 640px;
+}
+
+.settings-form label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.settings-form input[type="text"],
+.settings-form input[type="email"],
+.settings-form input[type="password"] {
+    width: 100%;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0 12px;
+    font-family: inherit;
+    background: var(--white);
+    color: var(--text);
+}
+
+.toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.status-note {
+    font-size: 12px;
+    color: var(--primary);
+    margin-top: 10px;
+}
+
+body.dark-mode .student-row,
+body.dark-mode .exam-row,
+body.dark-mode .fee-row,
+body.dark-mode .filter-tabs,
+body.dark-mode .settings-form input {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f3f4f6;
+}
+
+body.dark-mode .fee-status.paid,
+body.dark-mode .fee-status.pending {
+    background: #111827;
+}
+
+@media (max-width: 900px) {
+    .module-layout,
+    .page-heading {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .compact-grid {
+        grid-template-columns: 1fr;
+    }
+}

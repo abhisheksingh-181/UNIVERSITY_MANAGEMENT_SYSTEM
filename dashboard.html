@@ -29,32 +29,32 @@
         <div class="menu-title">MAIN MENU</div>
 
         <nav>
-            <a href="#" class="active">
+            <a href="dashboard.html" class="active">
                 <i class="fa-solid fa-grid-2"></i>
                 Dashboard
             </a>
 
-            <a href="#">
+            <a href="students.html">
                 <i class="fa-solid fa-user-graduate"></i>
                 Students
             </a>
 
-            <a href="#">
+            <a href="courses.html">
                 <i class="fa-solid fa-book-open"></i>
                 Courses
             </a>
 
-            <a href="#" id="attendanceNav" onclick="showAttendance(); return false;">
+            <a href="attendance.html">
                 <i class="fa-solid fa-chart-simple"></i>
                 Attendance
             </a>
 
-            <a href="#">
+            <a href="examinations.html">
                 <i class="fa-solid fa-file-lines"></i>
                 Examinations
             </a>
 
-            <a href="#">
+            <a href="fees.html">
                 <i class="fa-solid fa-credit-card"></i>
                 Fees
             </a>
@@ -63,12 +63,12 @@
         <div class="menu-title">SYSTEM</div>
 
         <nav>
-            <a href="#">
+            <a href="settings.html">
                 <i class="fa-solid fa-gear"></i>
                 Settings
             </a>
 
-            <a href="#" onclick="logout()">
+            <a href="index.html" class="logout-link">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 Logout
             </a>
@@ -155,7 +155,7 @@
 
         <section class="stats">
 
-            <div class="stat-card">
+            <div class="stat-card attendance-stat-card" onclick="location.href='courses.html'" role="link" tabindex="0">
 
                 <div class="stat-icon blue">
                     <i class="fa-solid fa-book-open"></i>
@@ -185,7 +185,7 @@
             </div>
 
 
-            <div class="stat-card">
+            <div class="stat-card attendance-stat-card" onclick="location.href='examinations.html'" role="link" tabindex="0">
 
                 <div class="stat-icon purple">
                     <i class="fa-solid fa-file-circle-check"></i>
@@ -200,7 +200,7 @@
             </div>
 
 
-            <div class="stat-card">
+            <div class="stat-card attendance-stat-card" onclick="location.href='fees.html'" role="link" tabindex="0">
 
                 <div class="stat-icon orange">
                     <i class="fa-solid fa-wallet"></i>
@@ -323,7 +323,7 @@
                         <p>Overall performance</p>
                     </div>
 
-                    <button onclick="showAttendance()">Details</button>
+                    <a href="attendance.html">Details</a>
                 </div>
 
                 <div class="attendance-circle" id="attendanceChart" role="button" tabindex="0" aria-label="View subject-wise attendance">
@@ -413,7 +413,7 @@
                         <p>Don't miss your important dates</p>
                     </div>
 
-                    <button onclick="showExams()">View all</button>
+                    <a href="examinations.html">View all</a>
                 </div>
 
                 <div class="exam-list">
@@ -509,6 +509,7 @@
         </div>
     </div>
 
+    <script src="app.js"></script>
     <script src="dashboard.js"></script>
 
 </body>

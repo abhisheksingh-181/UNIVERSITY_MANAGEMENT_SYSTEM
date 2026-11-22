@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | UniFlow</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="modules.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body data-page="settings">
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-box">U</div>
+            <div>
+                <h2>UniFlow</h2>
+                <span>Management System</span>
+            </div>
+        </div>
+        <div class="menu-title">MAIN MENU</div>
+        <nav>
+            <a href="dashboard.html"><i class="fa-solid fa-grid-2"></i> Dashboard</a>
+            <a href="students.html"><i class="fa-solid fa-user-graduate"></i> Students</a>
+            <a href="courses.html"><i class="fa-solid fa-book-open"></i> Courses</a>
+            <a href="attendance.html"><i class="fa-solid fa-chart-simple"></i> Attendance</a>
+            <a href="examinations.html"><i class="fa-solid fa-file-lines"></i> Examinations</a>
+            <a href="fees.html"><i class="fa-solid fa-credit-card"></i> Fees</a>
+        </nav>
+        <div class="menu-title">SYSTEM</div>
+        <nav>
+            <a href="settings.html" class="active"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="index.html" class="logout-link"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <div class="mini-avatar">AS</div>
+            <div>
+                <strong>Abhishek Singh</strong>
+                <small>B.Tech CSE</small>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id="moduleSearchInput" type="text" placeholder="Search modules...">
+            </div>
+            <div class="top-actions">
+                <div class="user">
+                    <div class="avatar">AS</div>
+                    <div>
+                        <strong>Abhishek Singh</strong>
+                        <small>Student</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="page-heading">
+            <div>
+                <p class="eyebrow">SYSTEM</p>
+                <h1>Settings</h1>
+                <p class="subtext">Update display preferences for this demo workspace.</p>
+            </div>
+        </section>
+
+        <section class="card settings-form">
+            <div>
+                <label for="settingsName">Display name</label>
+                <input id="settingsName" type="text" maxlength="80">
+            </div>
+            <div>
+                <label for="settingsEmail">Email</label>
+                <input id="settingsEmail" type="email" maxlength="120">
+            </div>
+            <div class="toggle-row">
+                <div>
+                    <strong>Dark mode</strong>
+                    <small>Use the dark dashboard theme</small>
+                </div>
+                <input id="settingsThemeToggle" type="checkbox">
+            </div>
+            <div class="toggle-row">
+                <div>
+                    <strong>Email notices</strong>
+                    <small>Receive exam and fee reminders</small>
+                </div>
+                <input id="settingsNotices" type="checkbox" checked>
+            </div>
+            <button class="primary-btn" id="settingsSave" type="button">Save settings</button>
+            <p id="settingsStatus" class="status-note"></p>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
