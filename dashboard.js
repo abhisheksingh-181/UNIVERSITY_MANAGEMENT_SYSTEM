@@ -432,3 +432,27 @@ if (themeToggle) {
         updateThemeIcon();
     });
 }
+/* ===== QUICK ACTIONS FUNCTIONALITY ===== */
+
+document.querySelectorAll(".quick-action").forEach(button => {
+    button.addEventListener("click", function () {
+        const action = this.dataset.action;
+
+        const messages = {
+            student: "Student registration is available in demo mode.",
+            course: "Course management is available in demo mode.",
+            attendance: "Opening attendance section...",
+            exam: "Opening examination section..."
+        };
+
+        if (action === "attendance" && typeof showAttendance === "function") {
+            showAttendance();
+        } else if (action === "exam" && typeof showExams === "function") {
+            showExams();
+        } else if (typeof showMessage === "function") {
+            showMessage(messages[action]);
+        } else {
+            alert(messages[action]);
+        }
+    });
+});
