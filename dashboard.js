@@ -286,9 +286,96 @@ function showSchedule() {
 
 /* ===== 6. ATTENDANCE DETAILS ===== */
 
-function showAttendance() {
-    showMessage("Your current attendance is 82%.");
+const subjectAttendance = [
+    { name: "Data Structures", code: "CS204", attended: 44, total: 50, percent: 88 },
+    { name: "Operating System", code: "CS208", attended: 35, total: 45, percent: 78 },
+    { name: "Database Management", code: "CS205", attended: 41, total: 48, percent: 85 },
+    { name: "Computer Networks", code: "CS206", attended: 32, total: 40, percent: 80 },
+    { name: "Cloud Architecture", code: "CS207", attended: 29, total: 38, percent: 76 },
+    { name: "Microprocessor", code: "CS209", attended: 35, total: 42, percent: 83 },
+    { name: "Professional Skills", code: "HS204", attended: 27, total: 32, percent: 84 }
+];
+
+function renderSubjectAttendance() {
+    const list = document.getElementById("attendanceSubjectList");
+
+    if (!list || list.dataset.ready === "true") {
+        return;
+    }
+
+    subjectAttendance.forEach(function (subject) {
+        const low = subject.percent < 75;
+        const item = document.createElement("article");
+        item.className = "attendance-subject";
+
+        item.innerHTML =
+            '<div class="attendance-subject-top">' +
+                "<div>" +
+                    "<h3>" + subject.name + "</h3>" +
+                    "<p>" + subject.code + " • " + subject.attended + "/" + subject.total + " classes</p>" +
+                "</div>" +
+                '<span class="attendance-subject-percent' + (low ? " warn" : "") + '">' +
+                    subject.percent + "%" +
+                "</span>" +
+            "</div>" +
+            '<div class="attendance-bar' + (low ? " warn" : "") + '">' +
+                '<span style="width:' + subject.percent + '%"></span>' +
+            "</div>";
+
+        list.appendChild(item);
+    });
+
+    list.dataset.ready = "true";
 }
+
+function closeAttendance() {
+    const modal = document.getElementById("attendanceModal");
+
+    if (modal) {
+        modal.hidden = true;
+    }
+}
+
+function showAttendance() {
+    const modal = document.getElementById("attendanceModal");
+
+    if (!modal) {
+        showMessage("Your current attendance is 82%.");
+        return;
+    }
+
+    renderSubjectAttendance();
+    modal.hidden = false;
+}
+
+["attendanceChart", "attendanceStatCard"].forEach(function (id) {
+    const element = document.getElementById(id);
+
+    if (!element) {
+        return;
+    }
+
+    if (id === "attendanceChart") {
+        element.addEventListener("click", showAttendance);
+    }
+
+    element.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            showAttendance();
+        }
+    });
+});
+
+document.querySelectorAll("[data-close-attendance]").forEach(function (element) {
+    element.addEventListener("click", closeAttendance);
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        closeAttendance();
+    }
+});
 
 
 /* ===== 7. SCROLL TO EXAMS ===== */

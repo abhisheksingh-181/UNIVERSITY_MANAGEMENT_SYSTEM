@@ -44,7 +44,7 @@
                 Courses
             </a>
 
-            <a href="#">
+            <a href="#" id="attendanceNav" onclick="showAttendance(); return false;">
                 <i class="fa-solid fa-chart-simple"></i>
                 Attendance
             </a>
@@ -170,7 +170,7 @@
             </div>
 
 
-            <div class="stat-card">
+            <div class="stat-card attendance-stat-card" id="attendanceStatCard" onclick="showAttendance()" role="button" tabindex="0">
 
                 <div class="stat-icon green">
                     <i class="fa-solid fa-chart-line"></i>
@@ -326,7 +326,7 @@
                     <button onclick="showAttendance()">Details</button>
                 </div>
 
-                <div class="attendance-circle">
+                <div class="attendance-circle" id="attendanceChart" role="button" tabindex="0" aria-label="View subject-wise attendance">
                     <div>
                         <strong>82%</strong>
                         <span>Overall</span>
@@ -489,6 +489,25 @@
         </section>
 
     </main>
+
+    <div id="attendanceModal" class="attendance-modal" hidden>
+        <div class="attendance-modal-backdrop" data-close-attendance></div>
+        <div class="attendance-modal-panel" role="dialog" aria-modal="true" aria-labelledby="attendanceModalTitle">
+            <div class="attendance-modal-header">
+                <div>
+                    <p class="eyebrow">ACADEMIC RECORD</p>
+                    <h2 id="attendanceModalTitle">Subject-wise attendance</h2>
+                    <p>Overall 82% across 7 enrolled subjects this semester.</p>
+                </div>
+                <button type="button" class="attendance-modal-close" data-close-attendance aria-label="Close attendance details">×</button>
+            </div>
+            <div class="attendance-modal-summary">
+                <span><strong>82%</strong> overall</span>
+                <span>Minimum required: 75%</span>
+            </div>
+            <div id="attendanceSubjectList" class="attendance-subject-list"></div>
+        </div>
+    </div>
 
     <script src="dashboard.js"></script>
 
