@@ -4,7 +4,7 @@ const UniFlowData = {
         { name: "Operating System", code: "CS208", attended: 35, total: 45, percent: 78 },
         { name: "Database Management", code: "CS205", attended: 41, total: 48, percent: 85 },
         { name: "Computer Networks", code: "CS206", attended: 32, total: 40, percent: 80 },
-        { name: "Cloud Architecture", code: "CS207", attended: 29, total: 38, percent: 76 },
+        { name: "Cloud Architecture", code: "CS207", attended: 27, total: 38, percent: 71 },
         { name: "Microprocessor", code: "CS209", attended: 35, total: 42, percent: 83 },
         { name: "Professional Skills", code: "HS204", attended: 27, total: 32, percent: 84 }
     ],
@@ -59,6 +59,18 @@ function formatRupees(amount) {
     return "₹" + amount.toLocaleString("en-IN");
 }
 
+function attendanceLevel(percent) {
+    if (percent >= 85) {
+        return "good";
+    }
+
+    if (percent >= 75) {
+        return "mid";
+    }
+
+    return "low";
+}
+
 function renderAttendanceRows(list) {
     if (!list) {
         return;
@@ -67,7 +79,7 @@ function renderAttendanceRows(list) {
     list.innerHTML = "";
 
     UniFlowData.subjects.forEach(function (subject) {
-        const low = subject.percent < 75;
+        const level = attendanceLevel(subject.percent);
         const item = document.createElement("article");
         item.className = "attendance-subject";
         item.innerHTML =
@@ -76,9 +88,9 @@ function renderAttendanceRows(list) {
                     "<h3>" + subject.name + "</h3>" +
                     "<p>" + subject.code + " • " + subject.attended + "/" + subject.total + " classes</p>" +
                 "</div>" +
-                '<span class="attendance-subject-percent' + (low ? " warn" : "") + '">' + subject.percent + "%</span>" +
+                '<span class="attendance-subject-percent ' + level + '">' + subject.percent + "%</span>" +
             "</div>" +
-            '<div class="attendance-bar' + (low ? " warn" : "") + '">' +
+            '<div class="attendance-bar ' + level + '">' +
                 '<span style="width:' + subject.percent + '%"></span>' +
             "</div>";
         list.appendChild(item);

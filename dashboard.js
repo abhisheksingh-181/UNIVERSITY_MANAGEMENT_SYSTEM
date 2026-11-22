@@ -295,8 +295,14 @@ function renderSubjectAttendance() {
         return;
     }
 
+    if (typeof renderAttendanceRows === "function") {
+        renderAttendanceRows(list);
+        list.dataset.ready = "true";
+        return;
+    }
+
     subjectAttendance.forEach(function (subject) {
-        const low = subject.percent < 75;
+        const level = subject.percent >= 85 ? "good" : subject.percent >= 75 ? "mid" : "low";
         const item = document.createElement("article");
         item.className = "attendance-subject";
 
@@ -306,11 +312,11 @@ function renderSubjectAttendance() {
                     "<h3>" + subject.name + "</h3>" +
                     "<p>" + subject.code + " • " + subject.attended + "/" + subject.total + " classes</p>" +
                 "</div>" +
-                '<span class="attendance-subject-percent' + (low ? " warn" : "") + '">' +
+                '<span class="attendance-subject-percent ' + level + '">' +
                     subject.percent + "%" +
                 "</span>" +
             "</div>" +
-            '<div class="attendance-bar' + (low ? " warn" : "") + '">' +
+            '<div class="attendance-bar ' + level + '">' +
                 '<span style="width:' + subject.percent + '%"></span>' +
             "</div>";
 
