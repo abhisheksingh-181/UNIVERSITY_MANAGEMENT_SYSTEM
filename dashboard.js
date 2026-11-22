@@ -1,19 +1,23 @@
 
-/* 1. Dynamic date, greeting and live clock */
+/* ===== 1. DATE AND GREETING ===== */
 
 const dateElement = document.querySelector(".eyebrow");
 const heading = document.querySelector(".welcome h1");
 
 const today = new Date();
 
-dateElement.textContent = today.toLocaleDateString("en-IN", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-}).toUpperCase();
+if (dateElement) {
+    dateElement.textContent = today.toLocaleDateString("en-IN", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    }).toUpperCase();
+}
 
 function updateGreeting() {
+    if (!heading) return;
+
     const hour = new Date().getHours();
     let greeting = "Good evening";
 
@@ -28,12 +32,19 @@ function updateGreeting() {
 
 updateGreeting();
 
-// Add a live clock below the welcome heading
+
+/* ===== 2. LIVE CLOCK ===== */
+
+const welcomeSection = document.querySelector(".welcome > div");
+
 const clock = document.createElement("p");
+
 clock.style.cssText =
     "font-size:11px;color:#4f46e5;margin-top:8px;font-weight:600;";
 
-document.querySelector(".welcome > div").appendChild(clock);
+if (welcomeSection) {
+    welcomeSection.appendChild(clock);
+}
 
 function updateClock() {
     clock.textContent = "Current time: " +
@@ -44,7 +55,7 @@ updateClock();
 setInterval(updateClock, 1000);
 
 
-/* 2. Reusable message popup */
+/* ===== 3. REUSABLE MESSAGE POPUP ===== */
 
 function showMessage(message) {
     let toast = document.getElementById("dashboardToast");
@@ -80,7 +91,7 @@ function showMessage(message) {
 }
 
 
-/* 3. Interactive notification dropdown */
+/* ===== 4. NOTIFICATION DROPDOWN ===== */
 
 function showNotification() {
     let panel = document.getElementById("notificationPanel");
@@ -98,6 +109,7 @@ function showNotification() {
         top: 85px;
         right: 35px;
         width: 290px;
+        max-width: calc(100vw - 30px);
         background: white;
         padding: 20px;
         border: 1px solid #e9ecf2;
@@ -112,17 +124,20 @@ function showNotification() {
         "font-size:15px;margin-bottom:12px;color:#172033;";
 
     const notice1 = document.createElement("p");
-    notice1.textContent = "📚 Mid-term examinations are approaching.";
+    notice1.textContent =
+        "📚 Mid-term examinations are approaching.";
     notice1.style.cssText =
         "font-size:12px;padding:10px 0;border-top:1px solid #e9ecf2;";
 
     const notice2 = document.createElement("p");
-    notice2.textContent = "💳 Please check your pending fee balance.";
+    notice2.textContent =
+        "💳 Please check your pending fee balance.";
     notice2.style.cssText =
         "font-size:12px;padding:10px 0;border-top:1px solid #e9ecf2;";
 
     const closeButton = document.createElement("button");
     closeButton.textContent = "Close";
+
     closeButton.style.cssText = `
         background: #4f46e5;
         color: white;
@@ -142,38 +157,46 @@ function showNotification() {
 }
 
 
-/* 4. Scroll to the class schedule */
+/* ===== 5. SCROLL TO SCHEDULE ===== */
 
 function showSchedule() {
-    document.querySelector(".schedule-card").scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
+    const schedule = document.querySelector(".schedule-card");
+
+    if (schedule) {
+        schedule.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }
 
     showMessage("Today's class schedule");
 }
 
 
-/* 5. Attendance details */
+/* ===== 6. ATTENDANCE DETAILS ===== */
 
 function showAttendance() {
     showMessage("Your current attendance is 82%.");
 }
 
 
-/* 6. Scroll to upcoming exams */
+/* ===== 7. SCROLL TO EXAMS ===== */
 
 function showExams() {
-    document.querySelector(".exam-list").scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
+    const exams = document.querySelector(".exam-list");
+
+    if (exams) {
+        exams.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }
 
     showMessage("Here are your upcoming examinations.");
 }
 
 
-/* 7. Improved search with result count */
+/* ===== 8. IMPROVED DASHBOARD SEARCH ===== */
 
 const searchInput = document.getElementById("searchInput");
 
@@ -181,43 +204,73 @@ const searchableItems = document.querySelectorAll(
     ".class-item, .exam, .announcement, .stat-card"
 );
 
-const searchStatus = document.createElement("p");
+if (searchInput) {
 
-searchStatus.style.cssText =
-    "font-size:11px;color:#4f46e5;margin-top:6px;";
+    const searchStatus = document.createElement("p");
 
-searchInput.parentElement.insertAdjacentElement(
-    "afterend",
-    searchStatus
-);
+    searchStatus.style.cssText =
+        "font-size:11px;color:#4f46e5;margin-top:6px;";
 
-searchInput.addEventListener("input", function () {
-    const searchText = searchInput.value.trim().toLowerCase();
-    let visibleCount = 0;
+    searchStatus.setAttribute("aria-live", "polite");
 
-    searchableItems.forEach(function (item) {
-        const itemText = item.textContent.toLowerCase();
-        const matched = itemText.includes(searchText);
+    searchInput.parentElement.insertAdjacentElement(
+        "afterend",
+        searchStatus
+    );
 
-        item.style.display = matched ? "" : "none";
+    function performSearch() {
+        const searchText = searchInput.value.trim().toLowerCase();
 
-        if (matched) {
-            visibleCount++;
+        let visibleCount = 0;
+
+        searchableItems.forEach(function (item) {
+            const matched = item.textContent
+                .toLowerCase()
+                .includes(searchText);
+
+            item.style.display = matched ? "" : "none";
+
+            if (matched) {
+                visibleCount++;
+            }
+        });
+
+        if (searchText === "") {
+            searchStatus.textContent = "";
+        } else if (visibleCount === 0) {
+            searchStatus.textContent = "No matching results found.";
+        } else {
+            searchStatus.textContent =
+                visibleCount + " matching item(s) found.";
+        }
+    }
+
+    searchInput.addEventListener("input", performSearch);
+
+    searchInput.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            searchInput.value = "";
+            performSearch();
+            searchInput.blur();
         }
     });
 
-    if (searchText === "") {
-        searchStatus.textContent = "";
-    } else if (visibleCount === 0) {
-        searchStatus.textContent = "No matching results found.";
-    } else {
-        searchStatus.textContent =
-            visibleCount + " matching item(s) found.";
-    }
-});
+    document.addEventListener("keydown", function (event) {
+        const activeTag = document.activeElement.tagName;
+
+        if (
+            event.key === "/" &&
+            !["INPUT", "TEXTAREA", "SELECT"].includes(activeTag) &&
+            !document.activeElement.isContentEditable
+        ) {
+            event.preventDefault();
+            searchInput.focus();
+        }
+    });
+}
 
 
-/* 8. Demo logout confirmation */
+/* ===== 9. DEMO LOGOUT ===== */
 
 function logout() {
     const confirmLogout = confirm(
