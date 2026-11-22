@@ -693,3 +693,106 @@ body {
         display: none;
     }
 }
+/* ===== Dashboard UI Polish - Commit 1 ===== */
+
+/* Smooth page interactions */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.5;
+}
+
+/* Sidebar */
+.sidebar {
+    box-shadow: 5px 0 24px rgba(31, 41, 55, 0.04);
+}
+
+.sidebar nav a {
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar nav a:hover {
+    transform: translateX(4px);
+}
+
+/* Topbar */
+.topbar {
+    backdrop-filter: blur(10px);
+}
+
+.search {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search:focus-within {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.10);
+}
+
+/* Welcome section */
+.welcome h1 {
+    letter-spacing: -0.7px;
+}
+
+/* Statistics cards */
+.stat-card {
+    border-radius: 15px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(31, 41, 55, 0.09);
+}
+
+/* Content cards */
+.card {
+    border-radius: 15px;
+    transition: box-shadow 0.25s ease;
+}
+
+.card:hover {
+    box-shadow: 0 9px 25px rgba(31, 41, 55, 0.07);
+}
+
+/* Schedule and lists */
+.class-item,
+.exam,
+.announcement {
+    transition: background 0.2s ease;
+}
+
+.class-item:hover,
+.exam:hover,
+.announcement:hover {
+    background: #f8f9ff;
+}
+
+/* Buttons */
+button {
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid #4f46e5;
+    outline-offset: 3px;
+}
+
+/* Responsive spacing */
+@media (max-width: 750px) {
+    .welcome {
+        gap: 15px;
+    }
+
+    .stat-card {
+        border-radius: 12px;
+    }
+
+    .card {
+        border-radius: 12px;
+    }
+}
